@@ -1,0 +1,8 @@
+<ul>
+<% @all_tasks.each do |task| %>
+ <li><%=link_to('edit', "/edit/#{task.id}") + task.title + " " + task.deadline.to_s %></li> 
+<% end %>
+
+</ul>
+
+<%= link_to('create', '/new')%>

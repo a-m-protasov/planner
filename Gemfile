@@ -32,6 +32,22 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-theme'
+
+  gem 'pry-nav'
+  gem 'pry-doc'
+  gem 'pry-docmore'
+
+  # Добавляет show-stack
+  gem "pry-stack_explorer"
+
+  gem 'pry-pretty-numeric'
+  gem 'pry-syntax-hacks'
+  gem 'pry-highlight'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
