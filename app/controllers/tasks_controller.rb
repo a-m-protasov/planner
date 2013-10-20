@@ -6,8 +6,7 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   def create
-    #binding.pry
-    Task.create(task_params)
+    Task.create(params[:task].permit!)
     redirect_to('/')
   end
   def edit
@@ -15,11 +14,12 @@ class TasksController < ApplicationController
   end  
   def update
     @task = Task.find params[:id]
-    @task.update_attributes(task_params)
+    @task.update_attributes(params[:task].permit!)
     redirect_to ('/')
   end
-protected
-  def task_params
-    params[:task].permit!
+  def delete
+    Task.delete(params[:id])
+    redirect_to('/')  
   end
+
 end

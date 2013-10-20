@@ -8,7 +8,7 @@ Planner::Application.routes.draw do
   post '/create' => 'tasks#create'
   get '/edit/:id' => 'tasks#edit'
   patch '/update/:id' => 'tasks#update'
-  
+  get '/delete/:id' => 'tasks#delete'
   #resources :tasks
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
