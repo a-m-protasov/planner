@@ -21,5 +21,4 @@ class TasksController < ApplicationController
     Task.delete(params[:id])
     redirect_to('/')  
   end
-
 end
