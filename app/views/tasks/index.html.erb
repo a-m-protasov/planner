@@ -1,10 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<div style="margin: 0 30px;">
+
 <h1>Planner</h1>  
-<ul>
+<ul class="unstyled">
 <% @all_tasks.each do |task| %>
-  <li><%=link_to('<i class="icon-pencil"></i>'.html_safe, "/edit/#{task.id}") + ' ' + link_to('<i class="icon-remove"></i>'.html_safe, "/delete/#{task.id}") + ' ' + task.title + " " + task.deadline.mday.to_s + '/' + task.deadline.mon.to_s + '/' + task.deadline.year.to_s %></li>
+  <li><%=
+    link_to('<i class="icon-pencil"></i>'.html_safe, "/edit/#{task.id}")+ ' ' + link_to('<i class="icon-remove"></i>'.html_safe, "/delete/#{task.id}")  + ' ' + task.title + " " + task.deadline.mday.to_s + '/' + task.deadline.mon.to_s + '/' + task.deadline.year.to_s  %></li>
 <% end %>
-
 </ul>
-
 <%= link_to('<span class="btn btn-success">create</span>'.html_safe, '/new')%>
 
+</div>
+</html>
