@@ -1,5 +1,6 @@
+<h1>Edit task</h1>
 <%= form_for @task, url:"/update/#{@task.id}" do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_field :deadline %>
-  <%= f.submit %>
+  <%= f.text_field :title, placeholder: 'Задача' %>
+  <%= f.text_field :deadline, placeholder: 'Срок выполнения' %>
+  <%= f.submit class: 'btn btn-success', style: 'margin-bottom : 10px;' %>
 <% end %>
