@@ -2,11 +2,11 @@
 <html lang="ru">
 <div style="margin: 0 30px;">
 <h1>Create task</h1>
-<%= form_for @task, url:'/create' do |f| %>
-  <%= f.text_field :title, placeholder: 'Задача' %>
-  <%= f.text_field :deadline, placeholder: 'Срок выполнения' %>
+<%= form_for @task do |f| %>
+  <%= f.text_field :title, placeholder: 'Задача', required: true %>
+  <%= f.text_field :deadline, placeholder: 'Срок выполнения', required: true %>
   <%= f.submit class: 'btn btn-success', style: 'margin-bottom : 10px;' %>
-  <%= link_to('<span class="btn" style="margin-bottom: 10px;">Cancel</span>'.html_safe, '/')%>
+  <%= link_to('<span class="btn" style="margin-bottom: 10px;">Cancel</span>'.html_safe, '/tasks')%>
 <% end %>
 </div>
 </html>

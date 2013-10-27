@@ -1,24 +1,50 @@
 class TasksController < ApplicationController
+  
+  before_filter :find_task, only: [:show, :edit, :update, :destroy]
+  
   def index
     @all_tasks = Task.all
   end
+  
+  def show
+    unless @task
+      render text: "Page not found", status: 404
+    end
+  end
+  
   def new
     @task = Task.new
   end
+  
   def create
-    Task.create(params[:task].permit!)
-    redirect_to('/')
+    @task = Task.create(params[:task].permit!)
+    if @task.errors.empty?
+      redirect_to('/tasks')
+    else
+      render "new"
+    end  
   end
+  
   def edit
-    @task = Task.find params[:id]
   end  
+  
   def update
-    @task = Task.find params[:id]
     @task.update_attributes(params[:task].permit!)
-    redirect_to ('/')
+    if @task.errors.empty?
+      redirect_to ('/tasks')
+    else
+      render "edit"
+    end  
   end
-  def delete
-    Task.delete(params[:id])
-    redirect_to('/')  
+  
+  def destroy
+    redirect_to('/tasks')  
   end
+  
+  private
+  
+  def find_task
+    @task = Task.find(params[:id])
+  end
+
 end
