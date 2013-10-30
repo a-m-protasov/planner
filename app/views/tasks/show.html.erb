@@ -1,5 +1,8 @@
+<div style="margin: 0 30px;">
 <h1>Show</h1>
 Задача: <%= @task.title %> <br />
-Срок: <%= @task.deadline %><br />
+Срок: <%= @task.deadline.to_formatted_s(:my_date_format) %><br />
+<br />
+<%= link_to('<span class="btn btn-success">К списку</span>'.html_safe, tasks_path)%>
 
-<%= link_to('<span class="btn btn-success">К списку</span>'.html_safe, '/tasks')%>
+</div>

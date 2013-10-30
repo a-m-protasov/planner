@@ -19,7 +19,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(params[:task].permit!)
     if @task.errors.empty?
-      redirect_to('/tasks')
+      redirect_to(tasks_path)
     else
       render "new"
     end  
@@ -31,14 +31,14 @@ class TasksController < ApplicationController
   def update
     @task.update_attributes(params[:task].permit!)
     if @task.errors.empty?
-      redirect_to ('/tasks')
+      redirect_to (tasks_path)
     else
       render "edit"
     end  
   end
   
   def destroy
-    redirect_to('/tasks')  
+    redirect_to(tasks_path)  
   end
   
   private

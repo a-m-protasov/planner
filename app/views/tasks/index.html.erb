@@ -3,15 +3,25 @@
 <div style="margin: 0 30px;">
 
 <h1>Planner</h1>  
-<ul class="unstyled">
-<% @all_tasks.each do |task| %>
-  <%edit_link = link_to('<i class="icon-pencil"></i>'.html_safe, edit_task_path(task.id)) + ' ' %>
-  <%del_link = link_to('<i class="icon-remove"></i>'.html_safe, task_path(task), method: :delete, data: {confirm: "Really?"})  + ' ' %>
-  <%task_link = link_to(task.title, task_path(task))%>
-  <%human_date = " " + task.deadline.mday.to_s + '/' + task.deadline.mon.to_s + '/' + task.deadline.year.to_s%>
-  <li><%= edit_link + del_link + task_link + human_date %></li>
-<% end %>
-</ul>
+
+<table class="table table-condensed table-striped">
+  <tr>
+    <th>Task</th>
+    <th>Deadline</th>
+  </tr>
+
+  <% @all_tasks.each do |task| %>
+  <tr>
+      <%edit_link = link_to('<i class="icon-pencil"></i>'.html_safe, edit_task_path(task.id)) + ' ' %>
+      <%del_link = link_to('<i class="icon-remove"></i>'.html_safe, task_path(task), method: :delete, data: {confirm: "Really?"})  + ' ' %>
+      <%task_link = link_to(task.title, task_path(task))%>
+     
+      <td><%= edit_link + del_link + task_link %></td>
+      <td><%= task.deadline.to_formatted_s(:my_date_format) %></td>
+  </tr>
+  <% end %>
+</table>
+
 <%= link_to('<span class="btn btn-success">Create</span>'.html_safe, new_task_path)%>
 
 </div>

@@ -6,7 +6,7 @@
   <%= f.text_field :title, placeholder: 'Задача', required: true %>
   <%= f.text_field :deadline, placeholder: 'Срок выполнения', required: true %>
   <%= f.submit class: 'btn btn-success', style: 'margin-bottom : 10px;' %>
-  <%= link_to('<span class="btn" style="margin-bottom: 10px;">Cancel</span>'.html_safe, '/tasks')%>
+  <%= link_to('<span class="btn" style="margin-bottom: 10px;">Cancel</span>'.html_safe, tasks_path)%>
 <% end %>
 </div>
 </html>
