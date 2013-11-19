@@ -1,0 +1,21 @@
+<div style="margin: 0 30px;">
+      <table class="table table-condensed table-striped" style="width: auto;">
+        <tr>
+          <th>Login</th>
+          <th>-</th>
+        </tr>
+      
+        <% @all_users.each do |user| %>
+        <tr>
+            <%edit_link = link_to('<i class="icon-pencil"></i>'.html_safe, edit_user_path(user.id)) + ' ' %>
+            <%del_link = link_to('<i class="icon-remove"></i>'.html_safe, user_path(user), method: :delete, data: {confirm: "Really?"})  + ' ' %>
+            <%user_link = link_to(user.username, user_path(user))%>
+           
+            <td><%= edit_link + del_link + user_link %></td>
+            <td></td>
+        </tr>
+        <% end %>
+      </table>
+
+<%= link_to('<span class="btn btn-success">Create</span>'.html_safe, new_user_path)%>
+</div>

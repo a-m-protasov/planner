@@ -1,5 +1,6 @@
 <div style="margin: 0 30px;">
 <h1>Show</h1>
+Пользователь: <%= @task.user.try(:firstname) %> <br />
 Задача: <%= @task.title %> <br />
 Срок: <%= @task.deadline.to_formatted_s(:my_date_format) %><br />
 <br />
