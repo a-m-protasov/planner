@@ -6,8 +6,22 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="padding-top: 70px;">
 
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner">
+  <a class="brand" href="#" style="margin-left: 10px;">Planner</a>
+  <ul class="nav">
+      <li> <%= link_to('<i class="icon-tasks"></i> Tasks'.html_safe, tasks_path)%></li>
+      <li> <%= link_to('<i class="icon-user"></i> Users'.html_safe, users_path)%></li>
+  </ul>
+  <ul class="nav pull-right">
+      <li> <%= link_to('<i class="icon-off"></i> Logout'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+  </ul>  
+
+  
+</div>
+</div>
 <%= yield %>
 
 </body>

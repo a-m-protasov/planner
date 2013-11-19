@@ -1,11 +1,15 @@
 <div style="margin: 0 30px;">
+<h1>
+<%= "#{@user.firstname} #{@user.lastname}" %>
+</h1>
+
       <table class="table table-condensed table-striped" style="width: auto;">
         <tr>
           <th>Task</th>
           <th>Deadline</th>
         </tr>
       
-        <% @all_tasks.each do |task| %>
+        <% @user.tasks.each do |task| %>
         <tr>
             <%edit_link = link_to('<i class="icon-pencil"></i>'.html_safe, edit_task_path(task.id)) + ' ' %>
             <%del_link = link_to('<i class="icon-remove"></i>'.html_safe, task_path(task), method: :delete, data: {confirm: "Really?"})  + ' ' %>
@@ -17,6 +21,5 @@
         <% end %>
       </table>
 
-<%= link_to('<span class="btn btn-success">Create</span>'.html_safe, new_task_path)%>
-
+<%= link_to('<span class="btn btn-success">К списку</span>'.html_safe, users_path)%>
 </div>
