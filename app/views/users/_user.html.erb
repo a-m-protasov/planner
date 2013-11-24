@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+  <%= f.text_field :login, placeholder: 'Login', required: true %>
+  <%= f.text_field :firstname, placeholder: 'FirstName', required: true %>
+  <%= f.text_field :lastname, placeholder: 'LastName', required: true %>
+  <%= f.submit class: 'btn btn-success', style: 'margin-bottom : 10px;' %>
+  <%= link_to users_path do %>
+    <span class="btn" style="margin-bottom: 10px;">Cancel</span>
+  <% end %>
+<% end %>

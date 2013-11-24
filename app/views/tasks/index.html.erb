@@ -2,21 +2,21 @@
       <table class="table table-condensed table-striped" style="width: auto;">
         <tr>
           <th>Task</th>
+          <th>Assigned to</th>
           <th>Deadline</th>
         </tr>
       
         <% @all_tasks.each do |task| %>
-        <tr>
-            <%edit_link = link_to('<i class="icon-pencil"></i>'.html_safe, edit_task_path(task.id)) + ' ' %>
-            <%del_link = link_to('<i class="icon-remove"></i>'.html_safe, task_path(task), method: :delete, data: {confirm: "Really?"})  + ' ' %>
-            <%task_link = link_to(task.title, task_path(task))%>
-           
-            <td><%= edit_link + del_link + task_link %></td>
+          <tr>
+            <td><%= task_links_set(task) %></td>
+            <td>User with ID <%= task.user_id %></td>
             <td><%= task.deadline.to_formatted_s(:my_date_format) %></td>
-        </tr>
+          </tr>
         <% end %>
       </table>
 
-<%= link_to('<span class="btn btn-success">Create</span>'.html_safe, new_task_path)%>
+<%= link_to new_task_path do%>
+  <span class="btn btn-success">Create</span>
+<% end %>
 
 </div>

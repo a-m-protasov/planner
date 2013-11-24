@@ -12,13 +12,27 @@
 <div class="navbar-inner">
   <a class="brand" href="#" style="margin-left: 10px;">Planner</a>
   <ul class="nav">
-      <li> <%= link_to('<i class="icon-tasks"></i> Tasks'.html_safe, tasks_path)%></li>
-      <li> <%= link_to('<i class="icon-user"></i> Users'.html_safe, users_path)%></li>
+      <li> 
+      	<%= link_to tasks_path do %>
+      	  <i class="icon-tasks"></i>
+      	  Tasks
+      	<% end %>
+      </li>
+      <li> 
+        <%= link_to users_path do %>
+          <i class="icon-user"></i>
+          Users
+          <% end %>
+      </li>
   </ul>
   <ul class="nav pull-right">
-      <li> <%= link_to('<i class="icon-off"></i> Logout'.html_safe, destroy_user_session_path, :method => :delete) %></li>
+      <li>
+        <%= link_to destroy_user_session_path, :method => :delete do %>
+          <i class="icon-off"></i> 
+          Logout
+        <% end %>
+      </li>
   </ul>  
-
   
 </div>
 </div>

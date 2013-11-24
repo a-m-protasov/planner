@@ -1,7 +1,9 @@
  <%= form_for @task do |f| %>
   <%= f.text_field :title, placeholder: 'Задача', required: true %>
   <%= f.text_field :deadline, placeholder: 'Срок выполнения', required: true %>
-  <%= f.text_field :user_id, placeholder: 'user', required: true %>  
+  <%= f.text_field :user_id, placeholder: 'User ID', required: true %>  
   <%= f.submit class: 'btn btn-success', style: 'margin-bottom : 10px;' %>
-  <%= link_to('<span class="btn" style="margin-bottom: 10px;">Cancel</span>'.html_safe, tasks_path)%>
+  <%= link_to tasks_path do%>
+    <span class="btn" style="margin-bottom: 10px;">Cancel</span>
+  <% end %>
 <% end %>

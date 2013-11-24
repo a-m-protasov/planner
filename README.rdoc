@@ -1,28 +1,11 @@
 == Planner 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Roadmap:
 
-Things you may want to cover:
+* Сделать выпадающий список юзеров при создании/изменении задач
 
-* Ruby version
+* Заменить в Tasks "User with ID 1" на человеческое
 
-* System dependencies
+* Прикрутить нормальный дэйтпикер
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Сделать сортировку списка задач

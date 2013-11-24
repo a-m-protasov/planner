@@ -1,9 +1,12 @@
 <div style="margin: 0 30px;">
-<h1>Show</h1>
-Пользователь: <%= @task.user.try(:firstname) %> <br />
-Задача: <%= @task.title %> <br />
-Срок: <%= @task.deadline.to_formatted_s(:my_date_format) %><br />
-<br />
-<%= link_to('<span class="btn btn-success">К списку</span>'.html_safe, tasks_path)%>
+<h1><%= @task.title %></h1>
+
+<ul style="list-style-type: circle;">
+  <li>Ответственный: <%= @task.user.try(:username) %> </li>
+  <li>Срок: <%= @task.deadline.to_formatted_s(:my_date_format) %></li>
+</ul>
+<%= link_to tasks_path do %>
+  <span class="btn btn-success">К списку</span>
+<% end %>
 
 </div>
